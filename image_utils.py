@@ -18,7 +18,7 @@ def edge_detection(image):
         [-2, 0, 2],
         [-1, 0, 1]
     ])
-    edge_x=convolve2d(gray_image, kernelX, mode='same', boundary='symm')
-    edge_y=convolve2d(gray_image, kernelY, mode='same', boundary='symm')
+    edge_x=convolve2d(gray_image, kernelX, mode='same', boundary='fill', fillvalue = 0)
+    edge_y=convolve2d(gray_image, kernelY, mode='same', boundary='fill', fillvalue = 0)
     edge_mag=np.sqrt(edge_x*2+edge_y*2)
     return edge_mag
